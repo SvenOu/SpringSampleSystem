@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+		
+
+    <context:annotation-config/>
+	<aop:aspectj-autoproxy/>
+	<tx:annotation-driven/>
+ 	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name = "dataSource"  ref="dataSource"/>
+	</bean>
+	
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" ref="propertyLocations"/>
+	</bean>
+	
+	<util:list id="propertyLocations">
+		<value>classpath:jdbc.properties</value>
+		<value>classpath:resources-config.properties</value>
+		<value>classpath:cs-integration.properties</value>
+	</util:list>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"><value>${jdbc.driverClassName}</value></property>
+		<property name="url"><value>${jdbc.url}</value></property>
+		<property name="username"><value>${jdbc.username}</value></property>
+		<property name="password"><value>${jdbc.password}</value></property>
+		
+        <property name="validationQuery"><value>${jdbc.validationQuery}</value></property>
+        <property name="testOnBorrow"><value>${jdbc.testOnBorrow}</value></property>
+       
+        <property name="maxActive"><value>${jdbc.maxActive}</value></property>
+        <property name="maxIdle"><value>${jdbc.maxIdle}</value></property>
+        <property name="maxWait"><value>${jdbc.maxWait}</value></property>
+	</bean>
+	
+	<bean id="securityDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"><value>${jdbc.cs.driverClassName}</value></property>
+		<property name="url"><value>${jdbc.cs.url}</value></property>
+		<property name="username"><value>${jdbc.cs.username}</value></property>
+		<property name="password"><value>${jdbc.cs.password}</value></property>
+		
+        <property name="validationQuery"><value>${jdbc.cs.validationQuery}</value></property>
+        <property name="testOnBorrow"><value>${jdbc.cs.testOnBorrow}</value></property>
+       
+        <property name="maxActive"><value>${jdbc.cs.maxActive}</value></property>
+        <property name="maxIdle"><value>${jdbc.cs.maxIdle}</value></property>
+        <property name="maxWait"><value>${jdbc.cs.maxWait}</value></property>
+	</bean>
+	
+	
+</beans>
