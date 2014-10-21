@@ -9,6 +9,7 @@
 	<http auto-config="true" use-expressions="true">
 		<intercept-url pattern="${jdbc.cs.successUrl}" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/login_lib/**" filters="none" />
+		<intercept-url pattern="/controller/locale/**" filters="none"/>
 		<anonymous enabled="false" />
 		<session-management session-fixation-protection="none" invalid-session-url="/login.html" >  
             <concurrency-control/>  

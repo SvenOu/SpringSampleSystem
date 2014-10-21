@@ -9,6 +9,7 @@
 			classpath:com/svenou/myapp/main/spring-context-main.xml
 			classpath:com/svenou/myapp/security/cs-integration-context.xml
 			classpath:com/svenou/myapp/security/spring-context-security.xml
+			classpath:com/svenou/myapp/locale/spring-il8n-locale.xml
 		</param-value>
 	</context-param>
 	
