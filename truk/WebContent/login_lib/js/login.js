@@ -1,5 +1,6 @@
 loginApp ={
 	start: function(){
+		this.loadLanguageLabels("en_US");
 		this.bindEvents();
 	},
 	bindEvents:function(){
@@ -24,11 +25,42 @@ loginApp ={
 			$('#username').val('').focus();
 			$('#password').val('');
 		});
+		
+		$('#language').change(function(event) {
+			var code=$(this).val();
+			me.loadLanguageLabels(code);
+		});
+		
+	},
+	loadLanguageLabels: function(code){
+		var me =this;
+		me.changeLanguage(code,function(locale){	
+			$.getScript('controller/locale/messages.js', function(data, textStatus, jqxhr) {
+				if(textStatus='success')me.refreshLables();
+			});
+		});	
 	},
 	login: function(){
 		var userName = $('#username').val(),
 		password = $('#password').val();
 		$("form").submit();
+	},
+	changeLanguage: function(locale,callback){
+		$.ajax({
+			url : 'controller/locale/changeLocale?locale=' + locale,
+			type: 'GET',
+			success : function(result) {
+				if(result.success&&typeof(callback)=='function')
+					callback(result.data.locale);
+			}
+		});
+	},
+	refreshLables: function(){
+		$('#usernameLabel').text(MS.userId);
+	 	$('#passwordLabel').text(MS.password);
+	 	$('#languageLabel').text(MS.languageText);
+	 	$('#btn-login').text(MS.login);
+	 	$('#btn-reset').text(MS.reset);
 	}
 }
 $(function(){

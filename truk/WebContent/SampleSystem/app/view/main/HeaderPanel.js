@@ -30,7 +30,7 @@ Ext.define('SampleSystem.view.main.HeaderPanel', {
     		    {
     		    	xtype:'label',
     		    	cls:'header-title-text',
-    		    	html:'有志者，事竟成，破釜沉舟，百二秦关终属楚 <br/>有心人，天不负，卧薪尝胆，三千越甲可吞吴 '
+    		    	html:'有志者，事竟成，破釜沉舟，百二秦关终属楚 <br/>苦心人，天不负，卧薪尝胆，三千越甲可吞吴 '
     		    }
     		]
     	},
@@ -57,12 +57,12 @@ Ext.define('SampleSystem.view.main.HeaderPanel', {
     				 	{
     				    	xtype:'label',
     				    	cls:'user-name',
-    				    	html:'some one'
+    				    	name: 'userName'
     					},
 						{
 							xtype:'button',
 							name:'logout',
-							text:'退出登录',
+							text: MS.logOff,
 							height: 32,
 							width: 134,
 							cls : 'btn-log-off'

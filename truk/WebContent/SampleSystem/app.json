@@ -109,6 +109,10 @@
      *      }
      */
     "js": [
+    	{
+            "path": "../controller/locale/messages.js",
+            "remote": true
+        },
         {
             "path": "app.js",
             "bundle": true

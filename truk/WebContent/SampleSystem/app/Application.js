@@ -29,26 +29,25 @@ Ext.define('SampleSystem.Application', {
     	'MenusStore'  
 	],
     launch: function () {
-//    	var me = this;
-//		Ext.Ajax.request({
-//			url: '../controller/security/getUserAccess',
-//		    success: function(response){
-//		    	var responseText = Ext.JSON.decode(response.responseText);
-//		    	if(responseText.success == true){
-//					me.initExtJSConfig();
-//					app.user = responseText.data;
-//					
+    	var me = this;
+		Ext.Ajax.request({
+			url: '../controller/security/getCurrentUserDetails',
+		    success: function(response){
+		    	var responseText = Ext.JSON.decode(response.responseText);
+		    	if(responseText.success == true){
+					app.user = responseText.data;
+					
 					Ext.create('SampleSystem.view.main.ViewPort');
 					Ext.fly('loading').fadeOut({
 						remove: true
 					});
-//		    	}else {
-//		    		window.location.href = '../index.html';
-//		    	}
-//		    },
-//		    failure: function() {
-//		    	window.location.href = '../index.html';
-//		    }
-//		});
+		    	}else {
+		    		window.location.href = '../login.html';
+		    	}
+		    },
+		    failure: function() {
+		    	window.location.href = '../login.html';
+		    }
+		});
     }
 });

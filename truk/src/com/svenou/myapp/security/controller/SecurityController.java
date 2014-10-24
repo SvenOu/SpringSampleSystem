@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.svenou.myapp.commom.bean.CommonResponse;
 import com.svenou.myapp.main.service.iface.ContactService;
 import com.svenou.myapp.security.bean.CSUser;
 import com.svenou.myapp.security.service.iface.CsService;
@@ -20,7 +21,10 @@ public class SecurityController {
 	private CsService csService;
 	
 	@RequestMapping(value = "getCurrentUserDetails")
-	public  @ResponseBody CSUser getCurrentUserDetails(HttpServletRequest request){
-		return csService.getCurrentUserDetails(request);
+	public  @ResponseBody CommonResponse getCurrentUserDetails(HttpServletRequest request){
+		CSUser csUser = csService.getCurrentUserDetails(request);
+		if(null != csUser)
+			return CommonResponse.success(csUser);
+		return CommonResponse.SIMPLE_FAILURE;
 	}
 }

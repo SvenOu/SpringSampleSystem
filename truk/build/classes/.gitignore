@@ -4,10 +4,4 @@
 /cs-integration.properties
 /jdbc.properties
 /log4j.properties
-/messages.properties
-/messages_ar_AE.properties
-/messages_en_US.properties
-/messages_es_ES.properties
-/messages_in_ID.properties
-/messages_ru_RU.properties
 /resources-config.properties

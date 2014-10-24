@@ -1,5 +1,7 @@
 package com.svenou.myapp.security.service;
 
+import java.util.Locale;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +27,12 @@ public class CsServiceImpl implements CsService{
 	    if (authentication != null) {
 	        Object principal = authentication.getPrincipal();
 	        UserDetails userDetails = (UserDetails) (principal instanceof UserDetails ? principal : null);
-	        String languageCode = (String) WebUtils.getSessionAttribute(request,SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME);
+	        Locale languageCode =  (Locale) WebUtils.getSessionAttribute(request,SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME);
 	        CSUser user =new CSUser(userDetails.getUsername(), userDetails.getPassword(), 
 	        		userDetails.isEnabled(), userDetails.isAccountNonExpired(), 
 	        		userDetails.isCredentialsNonExpired(), userDetails.isAccountNonLocked(),
 	        		userDetails.getAuthorities());
-	        user.setLanguageCode(languageCode);
+	        user.setLanguageCode(languageCode.toString());
 	        return user;
 	    }
 	    return null;

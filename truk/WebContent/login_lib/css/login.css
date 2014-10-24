@@ -25,31 +25,40 @@ body
 	top: 50%;
 	left: 50%;
 	z-index: 0;
-	background: url(../images/log_bg.png) no-repeat;
+	background: url(../images/log_bg2.png) no-repeat;
 }
-#username, #password, .action {
-	background: transparent;
+#username, #password, .action ,#language {
 	position: absolute;
 	width: 244px;
 	left: 259px;
 	padding: 0;
 	border: 0;
+	border: 2px red solid;
+	background: white;
 	line-height: 40px;
 }
 #username {
 	height: 35px;
-	top: 115px;
+	top: 85px;
 	padding-left: 2px;
 }
 #password {
 	height:35px;
-	top: 166px;
+	top: 136px;
 	padding-left: 2px;
+}
+#language{
+	height: 35px;
+	top: 183px;
+	padding-left: 2px;
+	width: 250px;
 }
 .action {
 	left: 219px;
 	width: 335px;
-	top: 247px;
+	top: 245px;
+	background: transparent;
+	border: 0px;
 }
 #btn-login, #btn-reset {
 	float: left;
@@ -63,13 +72,34 @@ body
 #btn-reset {
 	margin-left: 3px;
 }
-#btn-login:hover {
-	background: url(../images/button_login_over.png) no-repeat;
+#btn-login,#btn-reset {
+	background: url(../images/button_normal.png) no-repeat;
+}
+#btn-login:hover,#btn-reset:hover {
+	background: url(../images/normal_password.png) no-repeat;
 }
 
-#btn-reset:hover {
-	background: url(../images/button_reset_over.png) no-repeat;
+.label{
+	position: absolute;
+	width: 230px;
+	left: 15px;
+	text-align: right;
+	height: 35px;
+	line-height: 40px;
+	font-size: 17px;
+	font-weight: bold;
 }
-
-
-
+.labguage-label{
+	top: 183px;
+}
+.userId-label{
+	top: 84px;
+}
+.password-label{
+	top: 135px;
+}
+.btn{
+	font-size: 17px;
+	font-weight: bold;
+	text-align: center;
+}

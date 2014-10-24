@@ -13,8 +13,14 @@ Ext.define('SampleSystem.controller.MainController', {
 			},
 			'button[name=logout]':{
 				click: me.logoff
+			},
+			'header-panel label[name=userName]':{
+				afterrender: me.loadUserNameLabel
 			}
 		});
+	},
+	loadUserNameLabel: function(label){
+		label.setText(app.user.username);
 	},
 	logoff: function(btn,e){
 		window.location.href = '../j_spring_security_logout';
@@ -26,23 +32,23 @@ Ext.define('SampleSystem.controller.MainController', {
 	leftMenuItemClick: function(leftMenu, record, item, index, e){
 		var keyName='',componentName='',name='';
 		switch(record.get('functionCode')) {
-		    case '首页':
+		    case 'home':
 		    	name=keyName='home';
 		    	componentName='SampleSystem.view.detail.Home';
 		        break;
-		    case '我的作品':
+		    case 'myWorks':
 		    	name=keyName='myWork';
 		    	componentName='SampleSystem.view.detail.MyWork';
 		        break;
-		    case '档案馆':
+		    case 'archives':
 		    	name=keyName='myInfo';
 		    	componentName='SampleSystem.view.detail.MyInfo';
 		    	break;
-		    case '兴趣爱好':
+		    case 'interests':
 		    	name=keyName='myInterests';
 		    	componentName='SampleSystem.view.detail.MyInterests';
 		    	break;
-		    case '理想抱负':
+		    case 'ambitions':
 		    	name=keyName='myDream';
 		    	componentName='SampleSystem.view.detail.MyDream';
 		    	break;

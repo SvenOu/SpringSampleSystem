@@ -1,4 +1,4 @@
-$image-search-path: 'H:/workspace-sts-3.2.0.RELEASE/SpringSampleSystem/WebContent/SampleSystem/build/production/SampleSystem/resources';
+$image-search-path: 'G:/developer/git-workspace/SpringSampleSystem/truk/WebContent/SampleSystem/build/production/SampleSystem/resources';
 $theme-name:  'ext-theme-neptune' !default;
 $include-ext-abstractmanager: false;
 $include-ext-action: false;

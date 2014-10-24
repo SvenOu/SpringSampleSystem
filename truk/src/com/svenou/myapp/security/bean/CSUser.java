@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.User;
 
 public class CSUser extends User {
 
+	private boolean hidePassword = true;
 	private String languageCode;
 	/*custom attribute*/
 	/**
@@ -22,6 +23,12 @@ public class CSUser extends User {
 				credentialsNonExpired, accountNonLocked, authorities);
 	}
 
+	@Override
+	public String getPassword() {
+		if(hidePassword) return null;
+		return super.getPassword();
+	}
+
 	public String getLanguageCode() {
 		return languageCode;
 	}
@@ -30,5 +37,11 @@ public class CSUser extends User {
 		this.languageCode = languageCode;
 	}
 
-	
+	public boolean isHidePassword() {
+		return hidePassword;
+	}
+
+	public void setHidePassword(boolean hidePassword) {
+		this.hidePassword = hidePassword;
+	}	
 }
