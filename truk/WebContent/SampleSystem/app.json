@@ -110,6 +110,10 @@
      */
     "js": [
     	{
+            "path": "./resources/common/common.js",
+            "remote": true
+        },
+    	{
             "path": "../controller/locale/messages.js",
             "remote": true
         },
@@ -145,6 +149,10 @@
      *      }
      */
     "css": [
+        {
+            "path": "./resources/css/app.css",
+            "remote": true
+        },
         {
             "path": "bootstrap.css",
             "bootstrap": true
