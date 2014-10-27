@@ -38,10 +38,6 @@ Ext.Microloader=Ext.Microloader||function(){var g=Ext.Boot,l=[],t=!1,j=g.platfor
 e=g.fetchSync(e),e=JSON.parse(e.content));return Ext.manifest=e},load:function(e){var j=m.initManifest(e),l=(e=j.loadOrder)?g.createLoadOrderMap(e):null,u=[],r=j.js||[],s=j.css||[],q,k=function(){t=!0;m.notify()};e&&(j.loadOrderMap=l);for(var a=s.concat(r),s=a.length,r=0;r<s;r++)j=a[r],q=!0,j.platform&&!g.filterPlatform(j.platform)&&(q=!1),q&&u.push(j.path);g.load({url:u,loadOrder:e,loadOrderMap:l,sequential:!0,success:k,failure:k})},onMicroloaderReady:function(e){t?e():l.push(e)},notify:function(){for(var e;e=
 l.shift();)e()}};return m}();Ext.manifest=Ext.manifest||"bootstrap";Ext.Microloader.load();</script>
     
-    <link rel="stylesheet" type="text/css" href="./resources/css/app.css" />
- 	<script src="./resources/common/common.js"></script>
-
-
 </head>
 <body>
 	<div id="loading">
