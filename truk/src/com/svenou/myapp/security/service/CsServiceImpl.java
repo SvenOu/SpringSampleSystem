@@ -25,6 +25,12 @@ public class CsServiceImpl implements CsService{
 	private Log log = LogFactory.getLog(CsServiceImpl.class);
 	
 	private Map<String, String> loginSuccessUrlMap;
+	private String authoritiedFailUrl;
+	
+	public void setAuthoritiedFailUrl(String authoritiedFailUrl) {
+		this.authoritiedFailUrl = authoritiedFailUrl;
+	}
+
 	public void setLoginSuccessUrlMap(Map<String, String> loginSuccessUrlMap) {
 		this.loginSuccessUrlMap = loginSuccessUrlMap;
 	}
@@ -49,7 +55,7 @@ public class CsServiceImpl implements CsService{
 		List<GrantedAuthority> authorities = (List<GrantedAuthority>) SecurityContextHolder.getContext()
 				.getAuthentication().getAuthorities();
 		if (authorities == null) {
-			return "/login.html";
+			return authoritiedFailUrl;
 		}
 		log.info("User " + getUserDeatils().getUsername()
 				+ " has authorities:" + authorities.toString());
@@ -58,7 +64,7 @@ public class CsServiceImpl implements CsService{
 			String userRole = authority.getAuthority();
 			return loginSuccessUrlMap.get(userRole);
 		}
-		return "/login.html";
+		return authoritiedFailUrl;
 	}
 	
 	private UserDetails getUserDeatils(){

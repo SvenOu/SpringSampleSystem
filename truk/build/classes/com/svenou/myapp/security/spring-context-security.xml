@@ -17,6 +17,7 @@
 	</bean>
 
 	<bean id="csService" class="com.svenou.myapp.security.service.CsServiceImpl">
+		<property name="authoritiedFailUrl" value="login.html"></property>
 		<property name="loginSuccessUrlMap">
 			<map>
 				<entry key="ROLE_ADMIN" value="/web/index.html" />
