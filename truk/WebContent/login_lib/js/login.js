@@ -1,7 +1,21 @@
 loginApp ={
+	languageKey: 'code',
+	defaultProfile: 'zh_CN',
 	start: function(){
-		this.loadLanguageLabels("zh_CN");
+		this.loadCookieProfile();
 		this.bindEvents();
+	},
+	loadCookieProfile: function(){
+		var code = $.cookie(this.languageKey);
+		if(code&&code.length>0){
+			$('#language').val(code);
+			this.loadLanguageLabels(code);
+		}else{
+			this.loadLanguageLabels(this.defaultProfile);
+		}
+	},
+	saveCookieProfile: function(code){
+		$.cookie(this.languageKey,code);
 	},
 	bindEvents:function(){
 		var me = this;
@@ -36,7 +50,10 @@ loginApp ={
 		var me =this;
 		me.changeLanguage(code,function(locale){	
 			$.getScript('controller/locale/messages.js', function(data, textStatus, jqxhr) {
-				if(textStatus='success')me.refreshLables();
+				if(textStatus='success'){
+					me.saveCookieProfile(code);
+					me.refreshLables();
+				}
 			});
 		});	
 	},
