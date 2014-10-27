@@ -2,6 +2,8 @@ package com.svenou.myapp.security.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,8 @@ import com.svenou.myapp.security.service.iface.CsService;
 @Controller
 @RequestMapping(value = "security")
 public class SecurityController {
+	private static Log log = LogFactory.getLog(SecurityController.class);
+	
 	@Autowired
 	private ContactService contactService;
 	@Autowired
@@ -26,5 +30,12 @@ public class SecurityController {
 		if(null != csUser)
 			return CommonResponse.success(csUser);
 		return CommonResponse.SIMPLE_FAILURE;
+	}
+	@RequestMapping("/loginEntry")
+	public String loginEntry() {
+		log.info("Login success. Prepare to redirect url by user role.");
+		String redirectUrl = csService.getLoginSuccessUrl();
+		log.info("Redirect to url:" + redirectUrl);
+		return "redirect:" + redirectUrl;
 	}
 }

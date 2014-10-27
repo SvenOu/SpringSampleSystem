@@ -11,11 +11,18 @@
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd 
 	http://www.springframework.org/schema/util 
 	http://www.springframework.org/schema/util/spring-util-3.0.xsd">
-	
+
 	<bean id="csDao" class="com.svenou.myapp.security.dao.CsDaoImpl">
 		<property name="dataSource" ref="securityDataSource" />
 	</bean>
-	
-	<bean id="csService" class="com.svenou.myapp.security.service.CsServiceImpl"></bean>
-	
+
+	<bean id="csService" class="com.svenou.myapp.security.service.CsServiceImpl">
+		<property name="loginSuccessUrlMap">
+			<map>
+				<entry key="ROLE_ADMIN" value="/web/index.html" />
+				<entry key="ROLE_USER" value="/web/index.html" />
+			</map>
+		</property>
+	</bean>
+
 </beans>

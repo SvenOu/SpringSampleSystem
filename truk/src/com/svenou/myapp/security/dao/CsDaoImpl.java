@@ -1,8 +1,12 @@
 package com.svenou.myapp.security.dao;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.GrantedAuthorityImpl;
 
 import com.svenou.myapp.security.dao.iface.CsDao;
 
@@ -27,5 +31,16 @@ public class CsDaoImpl extends NamedParameterJdbcDaoSupport implements CsDao{
 	public int findEnabledByUserId(String userId) {
 		return this.getJdbcTemplate().queryForObject(FIND_ENABLED_BYUSRID,
 				Integer.class, userId);
+	}
+
+	@Override
+	public Collection<GrantedAuthority> findAuthoritiesCollectionByUserId(
+			String userId) {
+		List<String> authoritieList = this.findAuthoritiesByUserId(userId);
+		Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+		for(String a:authoritieList){
+			authorities.add(new GrantedAuthorityImpl(a));
+		}
+		return authorities;
 	}
 }
