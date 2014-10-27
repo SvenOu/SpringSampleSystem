@@ -20,8 +20,8 @@
 		<property name="authoritiedFailUrl" value="login.html"></property>
 		<property name="loginSuccessUrlMap">
 			<map>
-				<entry key="ROLE_ADMIN" value="/web/index.html" />
-				<entry key="ROLE_USER" value="/web/index.html" />
+				<entry key="ROLE_ADMIN" value="${jdbc.cs.successUrl}" />
+				<entry key="ROLE_USER" value="${jdbc.cs.successUrl}" />
 			</map>
 		</property>
 	</bean>
