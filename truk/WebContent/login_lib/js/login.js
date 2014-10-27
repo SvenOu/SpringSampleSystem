@@ -1,6 +1,6 @@
 loginApp ={
 	start: function(){
-		this.loadLanguageLabels("en_US");
+		this.loadLanguageLabels("zh_CN");
 		this.bindEvents();
 	},
 	bindEvents:function(){

@@ -1,7 +1,7 @@
 Ext.define('SampleSystem.view.main.LeftPanel', {
 	extend: 'Ext.panel.Panel',
 	xtype:'left-panel',
-    title: '菜单',
+    title: MS.menu,
 	bodyCls: 'main-left-panel',
     border: false, 
     animCollapse: true,
