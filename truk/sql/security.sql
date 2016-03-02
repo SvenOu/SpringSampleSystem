@@ -17,11 +17,11 @@ CREATE TABLE user_roles (
 INSERT INTO users(username,password,enabled)
 VALUES ('sven','123456', true);
 INSERT INTO users(username,password,enabled)
-VALUES ('jam','123456', true);
+VALUES ('kris','123456', true);
 
 INSERT INTO user_roles (username, role)
 VALUES ('sven', 'ROLE_USER');
 INSERT INTO user_roles (username, role)
 VALUES ('sven', 'ROLE_ADMIN');
 INSERT INTO user_roles (username, role)
-VALUES ('jam', 'ROLE_USER');
+VALUES ('kris', 'ROLE_USER');

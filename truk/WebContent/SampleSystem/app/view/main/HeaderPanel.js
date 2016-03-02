@@ -25,7 +25,7 @@ Ext.define('SampleSystem.view.main.HeaderPanel', {
     		    	width:100,
     		    	height:80,
     		    	margin:'0 10 0 10',
-    		    	src:'./resources/images/psb.jpg'
+    		    	src:'./resources/images/android-6-marshmallow-features.png'
     		    },
     		    {
     		    	xtype:'label',

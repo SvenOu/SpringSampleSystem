@@ -1,2 +1,2 @@
 // @tag full-page
-// @require G:\developer\git-workspace\SpringSampleSystem\truk\WebContent\SampleSystem\app.js
+// @require H:\workspace-sts-3.2.0.RELEASE\SpringSampleSystem\WebContent\SampleSystem\app.js

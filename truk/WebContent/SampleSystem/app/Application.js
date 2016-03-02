@@ -20,7 +20,8 @@ Ext.define('SampleSystem.Application', {
     	'detail.MyDream',
     	'detail.MyInfo',
     	'detail.MyInterests',
-    	'detail.MyWork'
+    	'detail.MyWork',
+    	'Ext.ux.IFrame'
  	],
  	controllers: [
 		'MainController'
