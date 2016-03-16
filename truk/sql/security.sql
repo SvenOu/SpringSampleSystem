@@ -17,11 +17,17 @@ CREATE TABLE user_roles (
 INSERT INTO users(username,password,enabled)
 VALUES ('sven','123456', true);
 INSERT INTO users(username,password,enabled)
+VALUES ('sven.ou','123456', true);
+INSERT INTO users(username,password,enabled)
 VALUES ('kris','123456', true);
 
 INSERT INTO user_roles (username, role)
 VALUES ('sven', 'ROLE_USER');
 INSERT INTO user_roles (username, role)
 VALUES ('sven', 'ROLE_ADMIN');
+INSERT INTO user_roles (username, role)
+VALUES ('sven.ou', 'ROLE_USER');
+INSERT INTO user_roles (username, role)
+VALUES ('sven.ou', 'ROLE_ADMIN');
 INSERT INTO user_roles (username, role)
 VALUES ('kris', 'ROLE_USER');

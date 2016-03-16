@@ -1,4 +1,4 @@
-create database contactdb;
+create database security;
 
 CREATE TABLE `contact` (
   `contact_id` int(11) NOT NULL AUTO_INCREMENT,
